@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
             Column(
               children: [
 
-
+//one button
                   //pour eviter de beaucoup texte de button alors je le met d une classe qui s appele buutton_menu et puis juste je l appel et je la donne des propriete
                Padding(
                  padding: const EdgeInsets.symmetric(horizontal:70 ,vertical:5 ),
