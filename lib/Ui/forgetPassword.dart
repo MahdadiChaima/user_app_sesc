@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 class forgetPassword extends StatelessWidget {
+  static String id = 'forgetpassword';
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;

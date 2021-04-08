@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/ContainerAppBar.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/inputField.dart';
+import 'package:user_app_sesc/Ui/Home.dart';
+import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'ConstantWidget/Bottom.dart';
 class SingUp extends StatelessWidget {
   String gmail,password;
-
+  static String id = 'signup';
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
@@ -33,11 +35,19 @@ class SingUp extends StatelessWidget {
             inputField(),
             SizedBox(height: size.width/5 ,),
 
-            bottom("Sing Up"),
+           Expanded(
+             child: bottom(
+
+               label: 'Sign up',
+               ontap: () {
+                 Navigator.pushNamed(context,Home.id);
+               },
+             ),
+           ),
             SizedBox(height: size.width/25 ,),
             Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
               Text("Already have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray),),
-              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( 'Sing In'),child:Text("Sing In",style: TextStyle(fontSize: size.width/24,color: colorUser.gray),),),
+              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingIn.id),child:Text("Sing In",style: TextStyle(fontSize: size.width/24,color: colorUser.gray),),),
             ],))
 
           ],
