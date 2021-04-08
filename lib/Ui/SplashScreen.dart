@@ -17,3 +17,4 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
+//lol
