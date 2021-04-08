@@ -3,6 +3,7 @@ import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 class SplashScreen extends StatelessWidget {
+  static String id = 'splashscreen';
   @override
   Widget build(BuildContext context) {
    Size size=MediaQuery.of(context).size;

@@ -3,9 +3,12 @@ import 'package:user_app_sesc/Ui/ConstantWidget/ContainerAppBar.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/inputField.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Bottom.dart';
+import 'package:user_app_sesc/Ui/Home.dart';
+import 'package:user_app_sesc/Ui/Sing%20Up.dart';
+import 'package:user_app_sesc/Ui/forgetPassword.dart';
 class SingIn extends StatelessWidget {
   String gmail,password;
-
+  static String id = 'Signin';
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
@@ -24,20 +27,20 @@ class SingIn extends StatelessWidget {
 
             inputField(),
             SizedBox(height: size.width/25 ,),
-            GestureDetector(child:Container(margin: EdgeInsets.only(right:size.width/30 ),alignment:Alignment.topRight,child:GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( 'forget Password'),
+            GestureDetector(child:Container(margin: EdgeInsets.only(right:size.width/30 ),alignment:Alignment.topRight,child:GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( forgetPassword.id),
                 child: Text("Forget password?",style: TextStyle(fontWeight:FontWeight.w400,color: colorUser.darkBlue,fontSize: size.width/26),)),)),
             SizedBox(height: size.width/3 ,),
 
             bottom(
               label: 'Sign in',
               ontap: () {
-                Navigator.pushNamed(context, 'Home');
+                Navigator.pushNamed(context,Home.id);
               },
             ),
             SizedBox(height: size.width/25 ,),
             Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
               Text("Dont have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray),),
-              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( 'Sing Up'),child:Text("Sing Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray),),),
+              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingUp.id),child:Text("Sing Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray),),),
             ],))
 
           ],

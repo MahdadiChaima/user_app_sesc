@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/ContainerAppBar.dart';
 import 'ConstantWidget/botton_home.dart';
 import 'ConstantWidget/Color.dart';
+import 'package:user_app_sesc/Ui/Courses.dart';
 class Home extends StatelessWidget {
 
-
+  static String id = 'home';
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
@@ -46,10 +47,10 @@ class Home extends StatelessWidget {
                   child: button_home(
                     //une fonction ndiro fiha win 7abin nro7o
                     ontap: () {
-                      //Navigator.pushNamed(context, quizz);
+                      Navigator.pushNamed(context, Courses.id);
                     },
 
-                    nom_image: 'MenuQuiz.gif',
+                    nom_image: 'courses.gif',
                   ),
                 ),
 
