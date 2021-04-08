@@ -33,7 +33,15 @@ class SingUp extends StatelessWidget {
             inputField(),
             SizedBox(height: size.width/5 ,),
 
-            bottom("Sing Up"),
+           Expanded(
+             child: bottom(
+
+               label: 'Sign up',
+               ontap: () {
+                 Navigator.pushNamed(context, 'Home');
+               },
+             ),
+           ),
             SizedBox(height: size.width/25 ,),
             Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
               Text("Already have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray),),
