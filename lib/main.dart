@@ -3,6 +3,7 @@ import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Quiz.dart';
 import 'package:user_app_sesc/Ui/Sing%20Up.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
+import 'package:user_app_sesc/Ui/account.dart';
 import 'package:user_app_sesc/Ui/forgetPassword.dart';
 import 'package:user_app_sesc/Ui/score.dart';
 import 'package:user_app_sesc/Ui/score_fail.dart';
@@ -29,6 +30,7 @@ void main() {
       Score.id:(context)=>Score(),
       Score_Fail.id:(context)=>Score_Fail(),
       Score_Success.id:(context)=>Score_Success(),
+      account.id:(context)=>account(),
 
     },));
 }

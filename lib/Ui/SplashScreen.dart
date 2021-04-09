@@ -9,12 +9,12 @@ class SplashScreen extends StatelessWidget {
    Size size=MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        body: Container(width: size.width, height: size.height,
-          decoration: BoxDecoration(gradient:LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [colorUser.lightBlue, colorUser.darkBlue])),
+        body:AnimatedSplashScreen(splash:
+        Container(width: size.width, height: size.height,
+            decoration: BoxDecoration(gradient:LinearGradient(begin: Alignment.topLeft,
+                end: Alignment.bottomRight, colors: [colorUser.lightBlue, colorUser.darkBlue]))),
+          nextScreen: SingIn(),duration: 3000,)),
 
-        child:AnimatedSplashScreen(splash:Container(width: size.width, height: size.height,
-            decoration: BoxDecoration(gradient:LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [colorUser.lightBlue, colorUser.darkBlue]))),  nextScreen: SingIn(),duration: 3000,)),
-      ),
     );
   }
 }
