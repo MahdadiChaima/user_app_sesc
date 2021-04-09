@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
+import 'package:user_app_sesc/Ui/Courses.dart';
+import 'package:user_app_sesc/Ui/score.dart';
 class drawer extends StatelessWidget {
   static String id = 'drawer';
 
@@ -25,8 +27,8 @@ class drawer extends StatelessWidget {
 
      ), SizedBox(height: size.width/6,),
         ListMenu(icon: Icons.account_circle,text: "Account",tap: ()=>{},),
-        ListMenu(icon: Icons.poll,text: "Score",tap: ()=>{},),
-        ListMenu(icon: Icons.menu_book,text: "Courses",tap: ()=>{},),
+        ListMenu(icon: Icons.poll,text: "Score",tap: ()=>{Navigator.pushNamed(context,Score.id)},),
+        ListMenu(icon: Icons.menu_book,text: "Courses",tap: ()=>Navigator.pushNamed(context,Courses.id),),
         ListMenu(icon: Icons.star,text: "grade",tap: ()=>{},),
         ListMenu(icon: Icons.help,text: "Aide",tap: ()=>{},),
         ListMenu(icon: Icons.share,text: "Shared",tap: ()=>{},),
