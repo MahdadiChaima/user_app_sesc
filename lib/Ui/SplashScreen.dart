@@ -12,6 +12,7 @@ class SplashScreen extends StatelessWidget {
         body:AnimatedSplashScreen(splash:
         Container(width: size.width, height: size.height,
             decoration: BoxDecoration(
+              //
               //hadi ani nsstna fi zaki yb3thhali
             //     image:DecorationImage(image: AssetImage("assest/howScore.jpg"), fit: BoxFit.cover),
     gradient:LinearGradient(begin: Alignment.topLeft,
