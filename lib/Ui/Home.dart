@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/ContainerAppBar.dart';
+import 'package:user_app_sesc/Ui/ConstantWidget/appBarwithiconMenu.dart';
+import 'package:user_app_sesc/Ui/Quiz.dart';
 import 'ConstantWidget/botton_home.dart';
 import 'ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Courses.dart';
@@ -14,7 +16,8 @@ class Home extends StatelessWidget {
         body: ListView(
 
           children: [
-            containerAppBar("Home"),
+            appBarwithiconMenu("Home"),
+
             SizedBox(height: size.width/7,),
             Column(
               children: [
@@ -26,7 +29,7 @@ class Home extends StatelessWidget {
                  child: button_home(
                       //une fonction ndiro fiha win 7abin nro7o
                       ontap: () {
-                        //Navigator.pushNamed(context, quizz);
+                        Navigator.pushNamed(context, Quiz.id);
                       },
 
                       nom_image: 'MenuQuiz.gif',

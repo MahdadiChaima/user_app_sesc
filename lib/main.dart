@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
+import 'package:user_app_sesc/Ui/Quiz.dart';
 import 'package:user_app_sesc/Ui/Sing%20Up.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'package:user_app_sesc/Ui/forgetPassword.dart';
@@ -19,6 +21,8 @@ void main() {
       forgetPassword.id: (context) => forgetPassword(),
       Home.id: (context) => Home(),
       Courses.id: (context) => Courses(),
+      drawer.id:(context)=>drawer(),
+      Quiz.id:(context)=>Quiz()
 
     },));
 }
