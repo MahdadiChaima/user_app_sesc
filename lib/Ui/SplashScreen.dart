@@ -11,7 +11,10 @@ class SplashScreen extends StatelessWidget {
       child: Scaffold(
         body:AnimatedSplashScreen(splash:
         Container(width: size.width, height: size.height,
-            decoration: BoxDecoration(gradient:LinearGradient(begin: Alignment.topLeft,
+            decoration: BoxDecoration(
+              //hadi ani nsstna fi zaki yb3thhali
+            //     image:DecorationImage(image: AssetImage("assest/howScore.jpg"), fit: BoxFit.cover),
+    gradient:LinearGradient(begin: Alignment.topLeft,
                 end: Alignment.bottomRight, colors: [colorUser.lightBlue, colorUser.darkBlue]))),
           nextScreen: SingIn(),duration: 3000,)),
 
