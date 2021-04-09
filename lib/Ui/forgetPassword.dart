@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:user_app_sesc/Ui/ConstantWidget/Bottom.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
+import 'package:user_app_sesc/Ui/ConstantWidget/inputField.dart';
+import 'package:user_app_sesc/Ui/Home.dart';
 class forgetPassword extends StatelessWidget {
+  final TextEditingController email = new TextEditingController();
+
   static String id = 'forgetpassword';
   @override
   Widget build(BuildContext context) {
@@ -9,13 +14,47 @@ class forgetPassword extends StatelessWidget {
     return SafeArea(child: Scaffold(
       body:ListView(
         children: [
-          Image.asset("assest/forgetPassword.png",width: size.width,height: size.width,),
-          Center(child:Text("Forget Password",style: TextStyle(color: colorUser.darkGray,fontSize: size.width/15),),),
-      Center(child:Container(padding: EdgeInsets.all(size.width/30),width: size.width,height: size.height/2,child: Text("Enter email associated with your account well send your fartherinstruction",style: TextStyle(
-            color: colorUser.lightGray,fontSize: size.width/18
-          ),)),)
+      Container(width: size.width,height: size.width/1.2,
+      decoration: BoxDecoration(image:DecorationImage(image: AssetImage("assest/forgetPassword.png"),fit: BoxFit.cover,),
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(60) ,bottomLeft: Radius.circular(60) ,
+        ),boxShadow: [BoxShadow(
+          offset: Offset(1,0),
+            color: colorUser.darkGray,blurRadius: 4,
+          )]
+      ),
+
+      ),
+          SizedBox(height:size.width/20 ,),
+          textcenter(text: "Forget Password",size: size.width/15,color: colorUser.darkGray,),
+          SizedBox(height:size.width/20 ,),
+          textcenter(text: "Enter email associated with your ",size: size.width/20,color: colorUser.lightGray,),
+          textcenter(text: "account we’ll send your farther ",size: size.width/20,color: colorUser.lightGray,),
+          textcenter(text: "instruction",size: size.width/20,color: colorUser.lightGray,),
+          SizedBox(height:size.width/20 ,),
+       inputField(contrl: email,),
+
+          SizedBox(height:size.width/7 ,),
+
+       bottom(label: "Send", ontap: ()=>Navigator.pushNamed(context, Home.id))
         ],
       ),
     ));
+  }
+}
+
+class textcenter extends StatelessWidget {
+  const textcenter({
+    Key key,
+    @required this.size,@required this.color,@required this.text,
+  }) : super(key: key);
+
+  final double size;
+  final Color color;
+  final String text;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child:Text(text,style: TextStyle(color:color,fontSize:size),),);
   }
 }

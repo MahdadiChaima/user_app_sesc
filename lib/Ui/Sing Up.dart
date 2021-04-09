@@ -5,8 +5,13 @@ import 'package:user_app_sesc/Ui/ConstantWidget/inputField.dart';
 import 'package:user_app_sesc/Ui/Home.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'ConstantWidget/Bottom.dart';
+final TextEditingController name = new TextEditingController();
+final TextEditingController inscription_number = new TextEditingController();
+final TextEditingController email = new TextEditingController();
+final TextEditingController password = new TextEditingController();
+
 class SingUp extends StatelessWidget {
-  String gmail,password;
+
   static String id = 'signup';
   @override
   Widget build(BuildContext context) {
@@ -20,19 +25,19 @@ class SingUp extends StatelessWidget {
             SizedBox(height: size.width/7,),
             Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child:Text("First and last name:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
-            inputField(),
+            inputField(contrl: name),
             SizedBox(height: size.width/10 ,),
             Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Insccription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
-            inputField(),
+            inputField(contrl:inscription_number),
             SizedBox(height: size.width/10 ,),
             Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
-            inputField(),
+            inputField(contrl:email),
             SizedBox(height: size.width/10 ,),
             Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
-            inputField(),
+            inputField(contrl:password),
             SizedBox(height: size.width/5 ,),
 
            Expanded(
