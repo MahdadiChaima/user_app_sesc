@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,12 +16,13 @@ class Courses extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
 
-                borderRadius: BorderRadius.only(bottomLeft:Radius.circular(135) ,bottomRight:Radius.circular(135) ,
+                borderRadius: BorderRadius.only(bottomLeft:Radius.circular(45) ,bottomRight:Radius.circular(135) ,
                 ),
               ),
-              width: size.width,
-              height: size.height/8,
-              child:  Image.asset("assest/courses.gif",width: size.width,height: size.width,),
+
+              child:  ClipRRect(
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(72.0),top: Radius.circular(0)),
+                  child: Image.asset("assest/courses.gif")),
             ),
             SizedBox(height: size.width/7,),
 
