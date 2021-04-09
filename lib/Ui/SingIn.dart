@@ -22,7 +22,7 @@ class SingIn extends StatelessWidget {
           children: [
             containerAppBar("Sing In"),
          SizedBox(height: size.width/5,),
-        Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,child:Text("Emial:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20),)),
+        Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,child:Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20),)),
 
             inputField(contrl:email),
 

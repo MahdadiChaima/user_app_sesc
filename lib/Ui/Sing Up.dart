@@ -27,7 +27,7 @@ class SingUp extends StatelessWidget {
 
             inputField(contrl: name),
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Insccription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Inscription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
             inputField(contrl:inscription_number),
             SizedBox(height: size.width/10 ,),

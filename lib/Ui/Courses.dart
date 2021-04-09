@@ -4,6 +4,8 @@ import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Home.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
 
 
 class Courses extends StatelessWidget {
@@ -12,6 +14,17 @@ class Courses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
+    const colorizeColors = [
+      Colors.deepOrange,
+      Colors.orangeAccent,
+      Colors.yellow,
+      Colors.lightGreenAccent,
+    ];
+
+    const colorizeTextStyle = TextStyle(
+      fontSize: 40.0,
+      fontFamily: 'NunitoBold',
+    );
     return SafeArea(
       child: Scaffold(
         body: ListView(
@@ -26,8 +39,30 @@ class Courses extends StatelessWidget {
             Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,drawer.id)},icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),            Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,size: size.width/10,color: Colors.white,))),],),
 
 
-        SizedBox(height: size.width/5,),
-            Center(child: Text("in progress...",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray),))
+      //  SizedBox(height: size.width/5,),
+         //   Center(child: Text("in progress...",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray),)),
+    //  SizedBox(height: size.width/5,),
+ //   Center(child: Text("in progress...",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray),)),
+
+
+
+     Center(
+
+        child: AnimatedTextKit(
+          animatedTexts: [
+            ColorizeAnimatedText(
+              'In progress..',
+              textStyle: colorizeTextStyle,
+              colors: colorizeColors,
+            ),
+
+          ],
+          isRepeatingAnimation: true,
+          onTap: () {
+            print("Tap Event");
+          },
+        ),
+    ),
 
 
 //cm
