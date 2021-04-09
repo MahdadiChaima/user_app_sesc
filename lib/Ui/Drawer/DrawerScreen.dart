@@ -3,6 +3,7 @@ import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Courses.dart';
 import 'package:user_app_sesc/Ui/account.dart';
 import 'package:user_app_sesc/Ui/score.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 class drawer extends StatelessWidget {
   static String id = 'drawer';
 
@@ -26,6 +27,7 @@ class drawer extends StatelessWidget {
 
         ],),
 
+
      ), SizedBox(height: size.width/6,),
         ListMenu(icon: Icons.account_circle,text: "Account",tap:()=>Navigator.pushNamed(context,account.id)),
         ListMenu(icon: Icons.poll,text: "Score",tap: ()=>{Navigator.pushNamed(context,Score.id)},),
@@ -35,7 +37,8 @@ class drawer extends StatelessWidget {
         ListMenu(icon: Icons.share,text: "Shared",tap: ()=>{},),
         ListMenu(icon: Icons.people_rounded,text: "Created By",tap: ()=>{},),
 
-      ])
+      ]),
+
     ));
   }
 }
