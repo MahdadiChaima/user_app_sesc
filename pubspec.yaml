@@ -21,11 +21,12 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+
   flutter:
     sdk: flutter
   animated_splash_screen: ^1.1.0
   animated_text_kit: ^4.1.1
-  flutter_zoom_drawer: ^2.0.1
+  rating_dialog: ^2.0.0
 
 
 

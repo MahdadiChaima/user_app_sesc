@@ -20,11 +20,17 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return  SafeArea(child: Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child:drawer(),
+      ),
       body:
       Container(
         height: size.height,
@@ -33,7 +39,7 @@ class _QuizState extends State<Quiz> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [colorUser.lightBlue, colorUser.darkBlue])),
-        child:ListView(children: [Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,children: [  Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,size: size.width/10,color: Colors.white,)),), Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,drawer.id)},icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),
+        child:ListView(children: [Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,children: [  Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),
         ],),
 
           time(temp),

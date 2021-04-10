@@ -1,83 +1,156 @@
 import 'package:flutter/material.dart';
+import 'package:rating_dialog/rating_dialog.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Courses.dart';
 import 'package:user_app_sesc/Ui/account.dart';
 import 'package:user_app_sesc/Ui/score.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+
+
 class drawer extends StatelessWidget {
   static String id = 'drawer';
+  const drawer({Key key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) { Size size=MediaQuery.of(context).size;
-    return SafeArea(child: Scaffold(
-      body: ListView(children: [
-     Container(
-      decoration: BoxDecoration(gradient:LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [colorUser.lightBlue, colorUser.darkBlue]),
-      borderRadius: BorderRadius.only(bottomLeft:Radius.circular(135) ,bottomRight:Radius.circular(135) ,
-      ),
-      ),
-      width: size.width,
-      height: size.height/8,
-      child:Stack(children: [Center(child: Text("Menu",style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: size.width/18),),),
-      Container(margin: EdgeInsets.only(left:size.width/10,top: size.width/26 ),alignment:Alignment.topLeft,child:IconButton(onPressed: ()=>{Navigator.pop(context)},icon:Icon(Icons.arrow_back_ios_outlined,size: size.width/12,color: Colors.white,))),
-
-
-        ],),
-
-
-     ), SizedBox(height: size.width/6,),
-        ListMenu(icon: Icons.account_circle,text: "Account",tap:()=>Navigator.pushNamed(context,account.id)),
-        ListMenu(icon: Icons.poll,text: "Score",tap: ()=>{Navigator.pushNamed(context,Score.id)},),
-        ListMenu(icon: Icons.menu_book,text: "Courses",tap: ()=>Navigator.pushNamed(context,Courses.id),),
-        ListMenu(icon: Icons.star,text: "grade",tap: ()=>{},),
-        ListMenu(icon: Icons.help,text: "Aide",tap: ()=>{},),
-        ListMenu(icon: Icons.share,text: "Shared",tap: ()=>{},),
-        ListMenu(icon: Icons.people_rounded,text: "Created By",tap: ()=>{},),
-
-      ]),
-
-    ));
-  }
-}
-
-
-class ListMenu extends StatelessWidget {
-
-  String text;
-  IconData icon;
-  Function tap;
-  ListMenu({this.icon, this.text, this.tap});
   @override
   Widget build(BuildContext context) {
+    void ShowRate(){
+showDialog(context: context, builder: (context){
+  return RatingDialog(title: "Rating Our app",
+
+      message: "Tap a star to set your rating",
+      //image: image,//TODO: ndiro image nta3 logo nta3na
+      submitButton:'Submit',
+    onSubmitted: (response) {
+      // TODO: open the app's page on Google Play
+      print('rating: ${response.rating},, comment: ${response.comment} }');
+
+
+      if (response.rating < 3.0) {
+        // send their comments to your email or anywhere you wish
+        // ask the user to contact you instead of leaving a bad review
+      }
+    },
+  );
+});
+    }
     Size size=MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.only(left:size.width/5,top: size.width/12),
-      child: GestureDetector(
-        onTap: tap,
-        child: Row(
-          children: <Widget>[
-            Icon(
-              icon,
-              size:size.width/16,
-              color: colorUser.darkBlue,
+    return
+      ListView(children: [
+        Container( decoration:BoxDecoration(gradient:LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.topRight,
+            colors: [colorUser.lightBlue, colorUser.darkBlue]),),
+          child: Padding(
+
+            padding: EdgeInsets.only(top: size.width/10,bottom: size.width/10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [//TODO: image njiboha mn cont nta3o nta3 gmail n7a6oha dakhl image(Cirlcle Avatar )wala ndiro logo nta3 app
+                /*CircleAvatar(
+                  radius: 50.0,
+
+                  backgroundImage: NetworkImage(""   ),),
+                SizedBox(
+                  height: 5.0,
+                ),*/
+                //TODO:first Name w last name nta3o
+                Text(
+                  "",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+
+              ],
             ),
-            SizedBox(
-              width: size.width/30,
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize:size.width/16 ,
-                color: colorUser.gray,
-                   ),
-            ),
-          ],
+          ),
         ),
-      ),
-    );
-  }
-}
+        SizedBox(
+          height: size.width/8,
+        ),
+        //Now let's Add the button for the Menu
+        //and let's copy that and modify it
+        ListTile(
+          onTap:()=>Navigator.pushNamed(context,account.id),
+          leading: Icon(
+            Icons.account_circle,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Your Profile",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+
+        ListTile(
+          onTap: () {Navigator.pushNamed(context,Score.id);},
+          leading: Icon(
+            Icons.poll,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Your Score",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+
+        ListTile(
+          onTap:   ()=>Navigator.pushNamed(context,Courses.id),
+          leading: Icon(
+            Icons.menu_book,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Courses",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+
+        ListTile(
+          onTap: ShowRate,
+          leading: Icon(
+            Icons.star,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Rate My app",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+        ListTile(
+          onTap: () {},
+          leading: Icon(
+            Icons.help,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("help",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+        ListTile(
+          onTap: () {},
+          leading: Icon(
+            Icons.share,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Shared",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+        ListTile(
+          onTap: () {},
+          leading: Icon(
+            Icons.people_rounded,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Created By",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+      ]);
+  }}
 

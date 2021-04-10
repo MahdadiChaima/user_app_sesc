@@ -22,7 +22,7 @@ class account extends StatelessWidget {
         body: ListView(
 
           children: [
-            appBarwithiconMenu("Account"),
+            //appBarwithiconMenu("Account"),
             SizedBox(height: size.width/7,),
             Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child:Text("First and last name:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
 
