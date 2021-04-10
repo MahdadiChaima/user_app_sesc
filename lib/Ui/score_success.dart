@@ -10,9 +10,15 @@ class Score_Success extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+
     Size size=MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+          key: _scaffoldKey,
+          drawer: Drawer(
+            child:drawer(),
+          ),
         body: ListView(
 
           children: [
@@ -22,17 +28,21 @@ class Score_Success extends StatelessWidget {
                   ),boxShadow: [BoxShadow(
                     offset: Offset(1,0),
                     color: colorUser.darkGray,blurRadius: 14,)]),),
-              Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,drawer.id)},icon:Icon(Icons.menu_outlined,size: size.width/10,color: colorUser.gray,))),            Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,size: size.width/10,color: colorUser.gray,))),],),
+        Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,
+            child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,
+              size: size.width/10,color:colorUser.gray,))),
 
-
-            SizedBox(height: size.width/5,),
+        Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,
+            child:IconButton(onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,
+              size: size.width/10,color:colorUser.gray,))),
+]),
+        SizedBox(height: size.width/5,),
             Center(child: Text("You Win",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
             Center(child: Text("$totalscore/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange),))
 
 
 
-          ],
-        ),   floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios_outlined),
+         ]),   floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios_outlined),
         backgroundColor: colorUser.orange,  ),
           floatingActionButtonLocation: FloatingActionButtonLocation.startFloat
       ),

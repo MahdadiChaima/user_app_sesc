@@ -6,6 +6,8 @@ import 'package:user_app_sesc/Ui/Home.dart';
 int score=20,totalscore=100;
 
 class Score_Fail extends StatelessWidget {
+  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+
   static String id = 'Score_Fail';
 
   @override
@@ -13,6 +15,10 @@ class Score_Fail extends StatelessWidget {
     Size size=MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+          key: _scaffoldKey,
+          drawer: Drawer(
+            child:drawer(),
+          ),
         body: ListView(
 
           children: [
@@ -22,13 +28,22 @@ class Score_Fail extends StatelessWidget {
                   ),boxShadow: [BoxShadow(
                     offset: Offset(1,0),
                     color: colorUser.darkGray,blurRadius: 14,)]),),
-              Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,drawer.id)},icon:Icon(Icons.menu_outlined,size: size.width/10,color:colorUser.gray,))),            Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,size: size.width/10,color:colorUser.gray,))),],),
+              Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,
+                  child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,
+                    size: size.width/10,color:colorUser.gray,))),
+
+              Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,
+                  child:IconButton(onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,
+                    size: size.width/10,color:colorUser.gray,))),
+
+      ],),
+
+
 
 
             SizedBox(height: size.width/5,),
             Center(child: Text("Ooops!!",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
             Center(child: Text("You lose",style: TextStyle(fontSize: size.width/10,color:colorUser.lightGray),))
-
 
 
           ],
