@@ -34,7 +34,7 @@ class account extends StatelessWidget {
             Stack(children: [ Container(
 
               width: size.width,height: size.width/1.4,
-
+//p
               child: Column(
                 children: [
                   Center(
