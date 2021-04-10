@@ -3,8 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Time.dart';
-import 'package:user_app_sesc/Ui/Home.dart';
+import 'package:user_app_sesc/Ui/score_success.dart';
+import 'package:user_app_sesc/controller/Question.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
+
+import 'ConstantWidget/functions.dart';
 //mazal Ma3rftch kifah ndiir  nta3 kiykliki 3la ansower ywli ytbal giir lawn nta3ha
 //3labalk yakhi ttlawn 2ijaba b rose w font color ywli blabyad
 //mamb3d yro7 l next qstion
@@ -12,7 +15,20 @@ import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 //3ndk temp ymathl wa9t Sou2al gadah yg3d
 Color backgroundAnsawer=Colors.white,colorFont=colorUser.gray;
 int temp=20;
-String qst="what you want to do this year?",ans1="Study and travet ...",ans2="eat and Sleap ....",ans3="travel and travel .....";
+Question quizbrain = Question();
+String qst="what you want to do this year?",
+    ans1="Study and travet ...",
+    ans2="eat and Sleap ....",
+    ans3="travel and travel .....";
+bool correct=false;
+String corr_answer ='Study and travet ...'; //from data base
+
+
+//Map<String,bool> correction={'ans1':false,'ans2':false,'ans3':false};
+//int qstnb = 0;
+
+
+
 class Quiz extends StatefulWidget {
   static String id = 'Quiz';
   @override
@@ -20,8 +36,37 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+  void initState() {
+    super.initState();
+  //  correction.clear();
+   // correction={'ans1':false,'ans2':false,'ans3':false};
 
+  }
+  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+  int qstnb = 0;
+  void checkAns(int ans) {
+    int correct = quizbrain.getQstans();
+
+    setState(() {
+      if (quizbrain.isFinished() == true) {
+        //boite de dialogue
+        quizbrain.reset();
+        Navigator.pushNamed(context, Score_Success.id);
+
+
+      } else {
+      if (correct == ans) {
+        backgroundAnsawer=Colors.lightGreenAccent;
+        colorFont=Colors.white;
+      } else {
+        backgroundAnsawer=Colors.pink;
+        colorFont=Colors.white;
+      }
+      quizbrain.nextqst();
+    }}
+        );
+//The user picked true.
+}
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +84,10 @@ class _QuizState extends State<Quiz> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [colorUser.lightBlue, colorUser.darkBlue])),
-        child:ListView(children: [Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,children: [  Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,child:IconButton(onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),
+        child:ListView(children: [Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,children: [
+          Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),
+              alignment:Alignment.topRight,child:IconButton(
+                  onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),
         ],),
 
           time(temp),
@@ -53,23 +101,28 @@ class _QuizState extends State<Quiz> {
               ),
             ),
             child: Center(
-              child: Column(children: [SizedBox(height: size.width/16,),Container( width: size.width/1.3,
+              child: Column(
+                children: [
+                SizedBox(height: size.width/16,),Container( width: size.width/1.3,
                   padding:EdgeInsets.all(size.width/19),decoration:BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20) ,
-                      ),border: Border.all(color:colorUser.darkGray)), child:Text(qst,style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20),)),
+                      ),border: Border.all(color:colorUser.darkGray)),
+                     child:Text(quizbrain.getQsttxt(),style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20),)),
                 SizedBox(height: size.width/16,),
-                answer(ans: ans1,ontap: (){
-                  setState(() {
-                    backgroundAnsawer=colorUser.pink;
-                    colorFont=Colors.white;
-                  });
-                  Navigator.pushNamed(context, Quiz.id);
+                answer(
+                  ans: quizbrain.getans1txt(),
+                  ontap: (){
 
-
-
+                    checkAns(1);
                 },),
-                answer(ans: ans2,ontap: ()=>{},),
-                answer(ans: ans3,ontap: ()=>{},),
+                answer(ans: quizbrain.getans2txt(),
+               ontap: (){
+                 checkAns(2);
+               }),
+                answer(ans: quizbrain.getans3txt(),
+                  ontap: (){
+                    checkAns(3);
+                  }),
               ],),
             ),
           )
