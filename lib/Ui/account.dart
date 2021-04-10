@@ -7,7 +7,7 @@ import 'package:user_app_sesc/Ui/Home.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'ConstantWidget/Bottom.dart';
 final TextEditingController name = new TextEditingController();
 final TextEditingController inscription_number = new TextEditingController();
@@ -131,7 +131,41 @@ class account extends StatelessWidget {
                   ),
                 ),
                 onTap:() {
-                  // TODO: alert of changin mdps
+
+                  Alert(
+                      context: context,
+                      title: "UPDATE PASSWORD",
+                      content: Column(
+                        children: <Widget>[
+                          TextField(
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.lock),
+                              labelText: 'Old password',
+                            ),
+                          ),
+                          TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.lock),
+                              labelText: ' New password',
+                            ),
+                          ),
+                        ],
+                      ),
+                      buttons: [
+                        DialogButton(
+
+                          onPressed: () {
+                    Navigator.pop(context);
+                    // TODO: change password
+                  } ,
+
+                          child: Text(
+                            "Save",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                        )
+                      ]).show();
                 },
               ),
             )

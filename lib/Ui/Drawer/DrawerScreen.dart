@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Courses.dart';
+import 'package:user_app_sesc/Ui/Sing%20Up.dart';
+import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'package:user_app_sesc/Ui/account.dart';
 import 'package:user_app_sesc/Ui/score.dart';
 
@@ -147,6 +149,20 @@ showDialog(context: context, builder: (context){
             color: colorUser.darkBlue,
           ),
           title: Text("Created By",style: TextStyle(
+            fontSize:size.width/22 ,
+            color: colorUser.gray,
+          ),),
+        ),
+
+        ListTile(
+          onTap: () {
+            Navigator.pushNamed(context,SingIn.id);
+          },
+          leading: Icon(
+            Icons.logout,
+            color: colorUser.darkBlue,
+          ),
+          title: Text("Log out",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
           ),),
