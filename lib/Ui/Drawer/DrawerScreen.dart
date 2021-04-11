@@ -61,7 +61,9 @@ showDialog(context: context, builder: (context){
                   style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.w800,
+                      fontFamily: 'VarelaRound-Regular'
                   ),
+
                 ),
 
               ],
@@ -82,6 +84,7 @@ showDialog(context: context, builder: (context){
           title: Text("Your Profile",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -94,6 +97,7 @@ showDialog(context: context, builder: (context){
           title: Text("Your Score",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -106,6 +110,7 @@ showDialog(context: context, builder: (context){
           title: Text("Courses",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -118,6 +123,7 @@ showDialog(context: context, builder: (context){
           title: Text("Rate My app",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
         ListTile(
@@ -129,6 +135,7 @@ showDialog(context: context, builder: (context){
           title: Text("help",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
         ListTile(
@@ -140,6 +147,7 @@ showDialog(context: context, builder: (context){
           title: Text("Shared",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
         ListTile(
@@ -151,6 +159,7 @@ showDialog(context: context, builder: (context){
           title: Text("Created By",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -165,6 +174,7 @@ showDialog(context: context, builder: (context){
           title: Text("Log out",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
       ]);

@@ -22,17 +22,20 @@ class SingIn extends StatelessWidget {
           children: [
             containerAppBar("Sing In"),
          SizedBox(height: size.width/5,),
-        Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,child:Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20),)),
+        Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,
+            child:Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
 
             inputField(contrl:email),
 
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20),)),
+            Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,
+                child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
 
             inputField(contrl:password),
             SizedBox(height: size.width/25 ,),
             GestureDetector(child:Container(margin: EdgeInsets.only(right:size.width/30 ),alignment:Alignment.topRight,child:GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( forgetPassword.id),
-                child: Text("Forget password?",style: TextStyle(fontWeight:FontWeight.w400,color: colorUser.darkBlue,fontSize: size.width/26),)),)),
+                child: Text("Forget password?",
+                  style: TextStyle(fontWeight:FontWeight.w400,color: colorUser.darkBlue,fontSize: size.width/26,fontFamily: 'VarelaRound-Regular'),)),)),
             SizedBox(height: size.width/3 ,),
 
             bottom(
@@ -43,8 +46,9 @@ class SingIn extends StatelessWidget {
             ),
             SizedBox(height: size.width/25 ,),
             Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-              Text("Dont have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray),),
-              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingUp.id),child:Text("Sing Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray),),),
+              Text("Dont have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),),
+              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingUp.id),
+                child:Text("Sing Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'VarelaRound-Regular'),),),
             ],))
 
           ],

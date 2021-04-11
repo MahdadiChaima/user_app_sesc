@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Home.dart';
@@ -10,7 +11,7 @@ class Score_Success extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
 
     Size size=MediaQuery.of(context).size;
     return SafeArea(
@@ -38,7 +39,7 @@ class Score_Success extends StatelessWidget {
 ]),
         SizedBox(height: size.width/5,),
             Center(child: Text("You Win",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
-            Center(child: Text("$totalscore/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange),))
+            Center(child: Text("$totalscore/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange,fontFamily: 'VarelaRound-Regular'),))
 
 
 
@@ -48,4 +49,30 @@ class Score_Success extends StatelessWidget {
       ),
     );
   }
-}
+ /* Widget build(BuildContext context) {
+      Size size=MediaQuery.of(context).size;
+    Alert(
+      context: context,
+      title: "You Win",
+      desc: "$totalscore/$totalscore",
+     style: AlertStyle(descStyle: TextStyle(fontSize: size.width/10,color:colorUser.orange)),
+      image: Image.asset("assest/success.PNG"),
+        buttons: [
+          DialogButton(
+
+            onPressed: () {
+              Navigator.pop(context);
+              // TODO: change password
+            } ,
+
+            child: Text(
+              "Save",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          )
+        ]
+    ).show();*/
+  }
+
+
+

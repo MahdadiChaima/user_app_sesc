@@ -17,7 +17,7 @@ class containerAppBar extends StatelessWidget {
       ),
       width: size.width,
       height: size.height/8,
-     child: Center(child: Text(this.text,style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: size.width/18),),),
+     child: Center(child: Text(this.text,style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: size.width/18,fontFamily: 'VarelaRound-Regular'),),),
     );
   }
 }

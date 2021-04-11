@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Home.dart';
+import 'package:user_app_sesc/Ui/Quiz.dart';
 int score=20,totalscore=100;
 
 class Score_Fail extends StatelessWidget {
-  GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
+ GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
 
   static String id = 'Score_Fail';
 
   @override
+
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return SafeArea(
@@ -42,8 +45,8 @@ class Score_Fail extends StatelessWidget {
 
 
             SizedBox(height: size.width/5,),
-            Center(child: Text("Ooops!!",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
-            Center(child: Text("You lose",style: TextStyle(fontSize: size.width/10,color:colorUser.lightGray),))
+            Center(child: Text("Ooops!!",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray,fontFamily: 'VarelaRound-Regular'),)),
+            Center(child: Text("You lose",style: TextStyle(fontSize: size.width/10,color:colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),))
 
 
           ],

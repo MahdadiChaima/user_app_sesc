@@ -19,7 +19,7 @@ class appBarwithiconMenu extends StatelessWidget {
       ),
       width: size.width,
       height: size.height/8,
-      child:Stack(children: [Center(child: Text(this.text,style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: size.width/18),),),
+      child:Stack(children: [Center(child: Text(this.text,style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: size.width/18,fontFamily: 'VarelaRound-Regular',),),),
         Container(margin: EdgeInsets.only(left:size.width/10,top: size.width/28 ),alignment:Alignment.topLeft,child:IconButton(onPressed: onpressd,icon:Icon(Icons.menu_outlined,size: size.width/10,color: Colors.white,))),
       ],),
           );

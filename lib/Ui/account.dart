@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/ContainerAppBar.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
-import 'package:user_app_sesc/Ui/ConstantWidget/appBarwithiconMenu.dart';
-import 'package:user_app_sesc/Ui/ConstantWidget/inputField.dart';
+
 import 'package:user_app_sesc/Ui/Home.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
@@ -41,7 +40,8 @@ class account extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(40.0),
                       child: CircleAvatar(
-                        backgroundImage: AssetImage("assest/user.jpg"),
+                        backgroundImage: AssetImage("assest/user_pic.png"),
+
                         radius: size.width/6.2,
                         foregroundColor: Colors.deepOrange,
 
@@ -55,6 +55,7 @@ class account extends StatelessWidget {
                       color: Colors.white,
                       fontSize: size.width/11,
                       fontWeight: FontWeight.bold,
+                        fontFamily: 'VarelaRound-Regular'
 
                     ),),
                   )
@@ -93,6 +94,7 @@ class account extends StatelessWidget {
                   'aminakh@gmail.com',
                   style: TextStyle(
                     color: colorUser.darkGray,
+                    fontFamily: 'VarelaRound-Regular',
                     //  fontFamily: 'ionicons',
                     fontSize: 18,
                   ),
@@ -112,6 +114,7 @@ class account extends StatelessWidget {
                   '171735057399',
                   style: TextStyle(
                     color: colorUser.darkGray,
+                    fontFamily: 'VarelaRound-Regular',
                     //  fontFamily: 'ionicons',
                     fontSize: 18,
                   ),
@@ -127,7 +130,7 @@ class account extends StatelessWidget {
                 child:Text(
                   'update your password',
                   style: TextStyle(
-                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22
+                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'
                   ),
                 ),
                 onTap:() {
@@ -162,7 +165,7 @@ class account extends StatelessWidget {
 
                           child: Text(
                             "Save",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'VarelaRound-Regular'),
                           ),
                         )
                       ]).show();

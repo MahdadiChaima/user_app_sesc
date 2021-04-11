@@ -25,7 +25,7 @@ class Courses extends StatelessWidget {
 
     const colorizeTextStyle = TextStyle(
       fontSize:50,
-      fontFamily: 'NunitoBold',
+        fontFamily: 'VarelaRound-Regular'
     );
     return SafeArea(
       child: Scaffold(

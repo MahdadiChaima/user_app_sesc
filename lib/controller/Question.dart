@@ -32,6 +32,8 @@ class Question {
   String getQsttxt() {
     return _QuestionBank[_qstnb].qsttxt;
   }
+
+
   String getans1txt() {
     return _QuestionBank[_qstnb].qstans1;
   }

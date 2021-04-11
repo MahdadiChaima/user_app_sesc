@@ -21,7 +21,7 @@ class bottom extends StatelessWidget {
         ),
         width: size.width/3,
         height: size.height/18,
-        child: Center(child: Text(label,style: TextStyle(color:Colors.white,fontWeight: FontWeight.w500,fontSize: size.width/24),),),
+        child: Center(child: Text(label,style: TextStyle(color:Colors.white,fontWeight: FontWeight.w500,fontSize: size.width/24,fontFamily: 'VarelaRound-Regular'),),),
       ),
     );
   }

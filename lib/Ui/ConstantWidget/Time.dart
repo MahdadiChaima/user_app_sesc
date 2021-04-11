@@ -13,7 +13,7 @@ class time extends StatelessWidget {
           Center(
             child: TweenAnimationBuilder(
                 tween: Tween(begin: 1.0,end: 0.0),
-                duration: Duration(seconds: 20),
+                duration: Duration(seconds: temp),
                 builder:(context,value,_)=>SizedBox(height:size.height/5,width:size.height/5,child:  CircularProgressIndicator(
                   value: value,
                   valueColor:AlwaysStoppedAnimation<Color>(Colors.white70),

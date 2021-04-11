@@ -54,6 +54,7 @@ class Home  extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 24,
                           color: colorUser.darkBlue,
+                          fontFamily: 'VarelaRound-Regular',
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center
 
@@ -76,6 +77,7 @@ class Home  extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 24,
                           color: colorUser.darkBlue,
+                          fontFamily: 'VarelaRound-Regular',
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center
 

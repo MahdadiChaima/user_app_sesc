@@ -55,6 +55,6 @@ class textcenter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child:Text(text,style: TextStyle(color:color,fontSize:size),),);
+    return Center(child:Text(text,style: TextStyle(color:color,fontSize:size,fontFamily: 'VarelaRound-Regular'),),);
   }
 }

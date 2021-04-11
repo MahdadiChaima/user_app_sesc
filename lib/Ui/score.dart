@@ -37,8 +37,8 @@ class Score extends StatelessWidget {
               size: size.width/10,color:colorUser.gray,))),
 ]),
         SizedBox(height: size.width/5,),
-            Center(child: Text("Your Score is:",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray),)),
-            Center(child: Text("$score/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange),))
+            Center(child: Text("Your Score is:",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray,fontFamily: 'VarelaRound-Regular'),)),
+            Center(child: Text("$score/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange,fontFamily: 'VarelaRound-Regular'),))
 
 
 
