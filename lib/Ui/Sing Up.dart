@@ -21,25 +21,41 @@ class SingUp extends StatelessWidget {
         body: ListView(
 
           children: [
-            containerAppBar("Sing Up"),
+            containerAppBar("تسجيل"),
             SizedBox(height: size.width/7,),
-            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child:Text("First and last name:",
-              style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),)),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),child:Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text("الإسم و اللقب :",
+                textAlign: TextAlign.right,
+                style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),),
+            )),
 
             inputField(contrl: name),
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,
-                child: Text("Inscription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),)),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),
+                child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Text("رقم التسجيل :",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),))),
 
             inputField(contrl:inscription_number),
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,
-                child: Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),)),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),
+                child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Text("البريد الإلكتروني",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),))),
 
             inputField(contrl:email),
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,
-                child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),)),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),
+                child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Text("كلمة السر:",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(color: colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),))),
 
             inputField(contrl:password),
             SizedBox(height: size.width/5 ,),
@@ -47,16 +63,19 @@ class SingUp extends StatelessWidget {
            Expanded(
              child: bottom(
 
-               label: 'Sign up',
+               label: 'تسجيل',
                ontap: () {
                  Navigator.pushNamed(context,Home.id);
                },
              ),
            ),
             SizedBox(height: size.width/25 ,),
-            Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-              Text("Already have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),),
-              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingIn.id),child:Text("Sing In",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'VarelaRound-Regular'),),),
+            Container(margin: EdgeInsets.only(right:size.width/20 ),child:Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+              Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Text("هل لديك حساب ؟",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'Tajawal-Regular'),)),
+              GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingIn.id),
+                child:Text("دخول",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'Tajawal-Regular'),),),
             ],))
 
           ],

@@ -3,12 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Time.dart';
 import 'package:user_app_sesc/Ui/score.dart';
-import 'package:user_app_sesc/Ui/score_fail.dart';
-import 'package:user_app_sesc/Ui/score_success.dart';
+
 import 'package:user_app_sesc/controller/Question.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 
@@ -143,7 +142,9 @@ class _QuizState extends State<Quiz> {
                   padding:EdgeInsets.all(size.width/19),decoration:BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20) ,
                       ),border: Border.all(color:colorUser.darkGray)),
-                     child:Text(quizbrain.getQsttxt(),style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
+                     child:Directionality(
+                         textDirection: TextDirection.rtl,
+                         child: Text(quizbrain.getQsttxt(),style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20,fontFamily: 'Tajawal-Regular'),))),
                 SizedBox(height: size.width/16,),
 
                  answer(
@@ -210,7 +211,9 @@ final Function ontap;
        margin: EdgeInsets.all(size.width/25),
 
 
-        child: Text(ans,style: TextStyle(color:colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),),
+        child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(ans,style: TextStyle(color:colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),)),
       ),
 
     );

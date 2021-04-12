@@ -45,8 +45,8 @@ class Score_Fail extends StatelessWidget {
 
 
             SizedBox(height: size.width/5,),
-            Center(child: Text("Ooops!!",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray,fontFamily: 'VarelaRound-Regular'),)),
-            Center(child: Text("You lose",style: TextStyle(fontSize: size.width/10,color:colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),))
+            Center(child: Text("للأسف ",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray,fontFamily: 'Tajawal-Regular'),)),
+            Center(child: Text("لم يوقك الحظ لتكون  ناجح",style: TextStyle(fontSize: size.width/10,color:colorUser.lightGray,fontFamily: 'Tajawal-Regular'),))
 
 
           ],

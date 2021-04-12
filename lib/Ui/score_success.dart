@@ -38,8 +38,8 @@ class Score_Success extends StatelessWidget {
               size: size.width/10,color:colorUser.gray,))),
 ]),
         SizedBox(height: size.width/5,),
-            Center(child: Text("You Win",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
-            Center(child: Text("$totalscore/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange,fontFamily: 'VarelaRound-Regular'),))
+            Center(child: Text("مبروك  نجحت",style: TextStyle(fontSize: size.width/7,color:colorUser.darkGray),)),
+            Center(child: Text("$totalscore/$totalscore",style: TextStyle(fontSize: size.width/10,color:colorUser.orange,fontFamily: 'Tajawal-Regular'),))
 
 
 

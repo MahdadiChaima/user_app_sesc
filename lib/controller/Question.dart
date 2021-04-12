@@ -15,10 +15,10 @@ class Questions {
 class Question {
   int _qstnb = 0;
   List<Questions> _QuestionBank = [
-    Questions('Some cats are actually allergic to humans', 'cat','cow','low',2),
-    Questions('You can lead a cow down stairs but not up stairs.','by','me','do',3),
+    Questions('ما اسم التطبيق', 'تطبيق','بطاطا ','بزاف',2),
+    Questions('ذهب عمر الى المدرسة','كذب','نعم','لا ادري',3),
     Questions(
-        'Approximately one quarter of human bones are in the feet.', 'yr','agm','ath',1),
+        'نكلاسيو لي كاستيون', 'نعم','لا','يزمرو',1),
 
   ];
   void nextqst() {

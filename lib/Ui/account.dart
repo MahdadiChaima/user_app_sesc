@@ -128,29 +128,29 @@ class account extends StatelessWidget {
             Center(
               child: GestureDetector(
                 child:Text(
-                  'update your password',
+                  'تغيير كلمة السر',
                   style: TextStyle(
-                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'
+                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'
                   ),
                 ),
                 onTap:() {
 
                   Alert(
                       context: context,
-                      title: "UPDATE PASSWORD",
+                      title: "تغيير كلمة السر",
                       content: Column(
                         children: <Widget>[
                           TextField(
                             decoration: InputDecoration(
                               icon: Icon(Icons.lock),
-                              labelText: 'Old password',
+                              labelText: 'كلمة السر الحالية',
                             ),
                           ),
                           TextField(
                             obscureText: true,
                             decoration: InputDecoration(
                               icon: Icon(Icons.lock),
-                              labelText: ' New password',
+                              labelText: 'كلمة السر الجديدة',
                             ),
                           ),
                         ],
@@ -164,8 +164,8 @@ class account extends StatelessWidget {
                   } ,
 
                           child: Text(
-                            "Save",
-                            style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'VarelaRound-Regular'),
+                            "حفظ",
+                            style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Tajawal-Regular'),
                           ),
                         )
                       ]).show();

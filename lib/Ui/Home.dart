@@ -28,7 +28,7 @@ class Home  extends StatelessWidget {
             children: [
 
               appBarwithiconMenu(
-                  "Home", ()=>_scaffoldKey.currentState.openDrawer()),
+                  "الصفحة الرئيسية", ()=>_scaffoldKey.currentState.openDrawer()),
 
               SizedBox(height: size.width / 7,),
               Column(
@@ -73,11 +73,11 @@ class Home  extends StatelessWidget {
                   ),
 
                   Text(
-                      ' Courses',
+                      'دروس',
                       style: TextStyle(
                           fontSize: 24,
                           color: colorUser.darkBlue,
-                          fontFamily: 'VarelaRound-Regular',
+                          fontFamily: 'Tajawal-Regular',
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center
 
