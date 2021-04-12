@@ -41,7 +41,7 @@ class account extends StatelessWidget {
                       padding: const EdgeInsets.all(40.0),
                       child: CircleAvatar(
                         backgroundImage: AssetImage("assest/user_pic.png"),
-
+                        
                         radius: size.width/6.2,
                         foregroundColor: Colors.deepOrange,
 
@@ -128,29 +128,29 @@ class account extends StatelessWidget {
             Center(
               child: GestureDetector(
                 child:Text(
-                  'تغيير كلمة السر',
+                  'update your password',
                   style: TextStyle(
-                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'
+                      fontWeight:FontWeight.w600,color: colorUser.darkBlue,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'
                   ),
                 ),
                 onTap:() {
 
                   Alert(
                       context: context,
-                      title: "تغيير كلمة السر",
+                      title: "UPDATE PASSWORD",
                       content: Column(
                         children: <Widget>[
                           TextField(
                             decoration: InputDecoration(
                               icon: Icon(Icons.lock),
-                              labelText: 'كلمة السر الحالية',
+                              labelText: 'Old password',
                             ),
                           ),
                           TextField(
                             obscureText: true,
                             decoration: InputDecoration(
                               icon: Icon(Icons.lock),
-                              labelText: 'كلمة السر الجديدة',
+                              labelText: ' New password',
                             ),
                           ),
                         ],
@@ -164,8 +164,8 @@ class account extends StatelessWidget {
                   } ,
 
                           child: Text(
-                            "حفظ",
-                            style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Tajawal-Regular'),
+                            "Save",
+                            style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'VarelaRound-Regular'),
                           ),
                         )
                       ]).show();

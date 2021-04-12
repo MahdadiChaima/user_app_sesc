@@ -20,52 +20,35 @@ class SingIn extends StatelessWidget {
         body: ListView(
 
           children: [
-            containerAppBar("دخول"),
+            containerAppBar("Sign In"),
          SizedBox(height: size.width/5,),
-        Container(margin: EdgeInsets.only(left:size.width/20 ),
-            child:Directionality(
-                textDirection: TextDirection.rtl,
-                child: Text("البريد الإلكتروني :",textAlign: TextAlign.start,
-                  style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'Tajawal-Regular'),))),
+        Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,
+            child:Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
 
             inputField(contrl:email),
 
             SizedBox(height: size.width/10 ,),
-            Container(margin: EdgeInsets.only(left:size.width/20 ),
-                child: Directionality(
-                    textDirection: TextDirection.rtl,child: Text("كلمة السر :",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'Tajawal-Regular'),))),
+            Container(margin: EdgeInsets.only(left:size.width/20 ),alignment:Alignment.topLeft,
+                child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
 
             inputField(contrl:password),
-            SizedBox(height: size.height/15 ,),
-            GestureDetector(child:Container(margin: EdgeInsets.only(right:size.width/30 ),
-              alignment:Alignment.topLeft,
-              child:GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( forgetPassword.id),
-                child: Text("هل نسيت كلمة السر ؟",
-                  style: TextStyle(
-                      fontWeight:FontWeight.w400,
-                      color: colorUser.darkBlue,
-                      fontSize: size.width/26,
-                      fontFamily: 'Tajawal-Regular'),)),)),
+            SizedBox(height: size.width/25 ,),
+            GestureDetector(child:Container(margin: EdgeInsets.only(right:size.width/30 ),alignment:Alignment.topRight,child:GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( forgetPassword.id),
+                child: Text("Forget password?",
+                  style: TextStyle(fontWeight:FontWeight.w400,color: colorUser.darkBlue,fontSize: size.width/26,fontFamily: 'VarelaRound-Regular'),)),)),
             SizedBox(height: size.width/3 ,),
 
             bottom(
-              label: 'دخول',
+              label: 'Sign in',
               ontap: () {
                 Navigator.pushNamed(context,Home.id);
               },
             ),
-            SizedBox(height: size.height/25 ,),
-            Container(
-                margin: EdgeInsets.only(right:size.width/20 ),
-                child:Column(mainAxisAlignment: MainAxisAlignment.center,children: [
-              Directionality(textDirection: TextDirection.rtl,
-                  child: Text("ليس لديك حساب ؟",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'Tajawal-Regular'),)),
-              SizedBox(height: size.height/30 ,),
+            SizedBox(height: size.width/25 ,),
+            Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
+              Text("Dont have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),),
               GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingUp.id),
-                child:Directionality(textDirection: TextDirection.rtl,
-                    child: Text("تسجيل",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'Tajawal-Regular'),)),),
+                child:Text("Sign Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'VarelaRound-Regular'),),),
             ],))
 
           ],

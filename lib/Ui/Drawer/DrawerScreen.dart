@@ -81,10 +81,10 @@ showDialog(context: context, builder: (context){
             Icons.account_circle,
             color: colorUser.darkBlue,
           ),
-          title: Text("بروفايلك",style: TextStyle(
+          title: Text("Your Profile",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -94,10 +94,10 @@ showDialog(context: context, builder: (context){
             Icons.poll,
             color: colorUser.darkBlue,
           ),
-          title: Text("نقاطك",style: TextStyle(
+          title: Text("Your Score",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -107,10 +107,10 @@ showDialog(context: context, builder: (context){
             Icons.menu_book,
             color: colorUser.darkBlue,
           ),
-          title: Text("دروس",style: TextStyle(
+          title: Text("Courses",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -120,10 +120,10 @@ showDialog(context: context, builder: (context){
             Icons.star,
             color: colorUser.darkBlue,
           ),
-          title: Text("تقييم التطبيق",style: TextStyle(
+          title: Text("Rate My app",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
         ListTile(
@@ -132,10 +132,10 @@ showDialog(context: context, builder: (context){
             Icons.help,
             color: colorUser.darkBlue,
           ),
-          title: Text("مساعدة",style: TextStyle(
+          title: Text("help",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
         ListTile(
@@ -144,22 +144,11 @@ showDialog(context: context, builder: (context){
             Icons.share,
             color: colorUser.darkBlue,
           ),
-          title: Text("مشاركة",style: TextStyle(
+
+          title: Text("Created By",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
-          ),),
-        ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.people_rounded,
-            color: colorUser.darkBlue,
-          ),
-          title: Text("أنشئ من طرف",style: TextStyle(
-            fontSize:size.width/22 ,
-            color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
 
@@ -171,10 +160,10 @@ showDialog(context: context, builder: (context){
             Icons.logout,
             color: colorUser.darkBlue,
           ),
-          title: Text("خروج",style: TextStyle(
+          title: Text("Log out",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
-              fontFamily: 'Tajawal-Regular'
+              fontFamily: 'VarelaRound-Regular'
           ),),
         ),
       ]);

@@ -25,17 +25,17 @@ class forgetPassword extends StatelessWidget {
 
       ),
           SizedBox(height:size.width/20 ,),
-          textcenter(text: "نسيت كلمة السر",size: size.width/15,color: colorUser.darkGray,),
+          textcenter(text: "Forget Password",size: size.width/15,color: colorUser.darkGray,),
           SizedBox(height:size.width/20 ,),
-          textcenter(text: "ادخل اليمايل الموافق",size: size.width/20,color: colorUser.lightGray,),
-          textcenter(text: "سنرسل لك رسالة",size: size.width/20,color: colorUser.lightGray,),
+          textcenter(text: "Enter email associated with your ",size: size.width/20,color: colorUser.lightGray,),
+          textcenter(text: "account we’ll send your farther ",size: size.width/20,color: colorUser.lightGray,),
           textcenter(text: "instruction",size: size.width/20,color: colorUser.lightGray,),
           SizedBox(height:size.width/20 ,),
        inputField(contrl: email,),
 
           SizedBox(height:size.width/7 ,),
 
-       bottom(label: "إرسال", ontap: ()=>Navigator.pushNamed(context, Home.id))
+       bottom(label: "Send", ontap: ()=>Navigator.pushNamed(context, Home.id))
         ],
       ),
     ));
@@ -55,6 +55,6 @@ class textcenter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child:Text(text,style: TextStyle(color:color,fontSize:size,fontFamily: 'Tajawal-Regular'),),);
+    return Center(child:Text(text,style: TextStyle(color:color,fontSize:size,fontFamily: 'VarelaRound-Regular'),),);
   }
 }

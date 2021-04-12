@@ -15,7 +15,7 @@ class button_home extends StatelessWidget {
         padding: EdgeInsets.all(9.0),
         //je fais card au lieu container car il a une shadow
         child: Card(
-          elevation: 6.0,
+          elevation: 10.0,
           margin: EdgeInsets.all(2.0),
           //pour radius
           shape: RoundedRectangleBorder(

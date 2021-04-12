@@ -25,7 +25,7 @@ class Courses extends StatelessWidget {
 
     const colorizeTextStyle = TextStyle(
       fontSize:50,
-        fontFamily: 'Tajawal-Regular'
+        fontFamily: 'VarelaRound-Regular'
     );
     return SafeArea(
       child: Scaffold(
@@ -59,22 +59,19 @@ class Courses extends StatelessWidget {
  SizedBox(height: size.width/7,),
      Center(
 
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: AnimatedTextKit(
-            animatedTexts: [
-              ColorizeAnimatedText(
-                'عن قريب ..',
-                textStyle: colorizeTextStyle,
-                colors: colorizeColors,
-              ),
+        child: AnimatedTextKit(
+          animatedTexts: [
+            ColorizeAnimatedText(
+              'In progress..',
+              textStyle: colorizeTextStyle,
+              colors: colorizeColors,
+            ),
 
-            ],
-            isRepeatingAnimation: true,
-            onTap: () {
-              print("Tap Event");
-            },
-          ),
+          ],
+          isRepeatingAnimation: true,
+          onTap: () {
+            print("Tap Event");
+          },
         ),
     ),
 
