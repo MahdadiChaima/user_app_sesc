@@ -116,7 +116,7 @@ class account extends StatelessWidget {
                     color: colorUser.darkGray,
                     fontFamily: 'VarelaRound-Regular',
                     //  fontFamily: 'ionicons',
-                    fontSize: 18,
+
                   ),
                 ),
               ),

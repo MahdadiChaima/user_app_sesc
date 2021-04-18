@@ -60,6 +60,7 @@ class Home  extends StatelessWidget {
 
                   ),
                   Padding(
+
                     padding: const EdgeInsets.symmetric(
                         horizontal: 70, vertical: 5),
                     child: button_home(

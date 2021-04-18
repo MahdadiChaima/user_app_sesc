@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,7 @@ import 'package:user_app_sesc/Ui/score_fail.dart';
 import 'package:user_app_sesc/Ui/score_success.dart';
 import 'package:user_app_sesc/controller/Question.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
+import 'package:http/http.dart' as http;
 
 //mazal Ma3rftch kifah ndiir  nta3 kiykliki 3la ansower ywli ytbal giir lawn nta3ha
 //3labalk yakhi ttlawn 2ijaba b rose w font color ywli blabyad
@@ -25,11 +27,26 @@ class Quiz extends StatefulWidget {
   static String id = 'Quiz';
   @override
   _QuizState createState() => _QuizState();
+}Future <List> getdata() async{
+  var url = 'http://127.0.0.1:8000/api/test';
+  http.Response response = await http.get(Uri.parse(url));
+  var data = jsonDecode(response.body);
+  print("hi go to hell");
+  print(data.toString());
+  return data;
+
+  /*var url="http://127.0.0.1:8000/api/test";
+  print('ani fi get data');
+  final response=await http.get(Uri.parse(url));
+
+  return jsonDecode(response.body);*/
 }
 
 class _QuizState extends State<Quiz> {
+
   void initState() {
     super.initState();
+
 
   //  correction.clear();
    // correction={'ans1':false,'ans2':false,'ans3':false};
@@ -108,7 +125,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return  SafeArea(child: Scaffold(
-      key: _scaffoldKey,
+    /* key: _scaffoldKey,
       drawer: Drawer(
         child:drawer(),
       ),
@@ -181,9 +198,33 @@ class _QuizState extends State<Quiz> {
             ),
           )
         ],),
-      ),
+      ),*/
 
-    ),);
+      appBar: AppBar(
+        title: Text("My App Bar"),
+    ),
+    floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
+    body: FutureBuilder<List>(future: getdata(),
+
+    builder: (context,snapShot){  if(snapShot.hasError){
+    print(snapShot.data);
+    return Items(list:snapShot.data);
+    }
+    if(snapShot.hasData){
+    return ListView.builder(itemCount: snapShot.data.length,
+    itemBuilder: (context,i){
+    return Container(child: Text(snapShot.data[i]['name']),);
+    });
+    }
+
+    else{
+    return CircularProgressIndicator();
+    }
+    }
+    ),
+    )
+
+    );
   }
 }
 
@@ -215,5 +256,23 @@ final Function ontap;
 
     );
 
+  }
+}
+class Items extends StatelessWidget {
+  List list;
+  Items({this.list});
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(itemCount:list==null?0:list.length ,itemBuilder: (ctx,i){
+      return ListTile(
+        leading: Icon(Icons.message),
+        title:Text(list[i]['id']),
+        subtitle: Text(list[i]['name']),
+        onTap: (){
+        //  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Details(list:list,index:i)));
+        },
+
+      );
+    });
   }
 }

@@ -8,6 +8,7 @@ class button_home extends StatelessWidget {
   final Function ontap;
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return GestureDetector(
       //la methode onTap sert a fait action listener
       onTap: ontap,
@@ -26,7 +27,7 @@ class button_home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
 
-               Image.asset('assest/$nom_image'),
+               Image.asset('assest/$nom_image',width: size.width/2,height: size.width/2,fit: BoxFit.cover, ),
 
 
             ],
