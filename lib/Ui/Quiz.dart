@@ -50,7 +50,7 @@ class _QuizState extends State<Quiz> {
       } else {
       if (correct == ans) {
         // TODO: increment score.
-
+print('right');
        // Navigator.pushNamed(context,Score_Success.id);
       /*  Alert(
             context: context,
@@ -71,6 +71,7 @@ class _QuizState extends State<Quiz> {
           ],
         ).show();*/
       } else {
+        print('wrong');
         // TODO: decrement score.
        // backgroundAnsawer=Colors.pink;
       //  colorFont=Colors.white;
