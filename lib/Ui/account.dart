@@ -41,7 +41,7 @@ class account extends StatelessWidget {
                       padding: const EdgeInsets.all(40.0),
                       child: CircleAvatar(
                         backgroundImage: AssetImage("assest/user_pic.png"),
-
+                        
                         radius: size.width/6.2,
                         foregroundColor: Colors.deepOrange,
 

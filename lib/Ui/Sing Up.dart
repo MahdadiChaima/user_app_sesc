@@ -24,8 +24,8 @@ final TextEditingController study_year = new TextEditingController();
 
 
 class SingUp extends StatefulWidget {  static String id = 'signup';
-  @override
-  _SingUpState createState() => _SingUpState();
+@override
+_SingUpState createState() => _SingUpState();
 }
 
 class _SingUpState extends State<SingUp> {
@@ -62,33 +62,33 @@ class _SingUpState extends State<SingUp> {
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
-        body: Form(
-          key:formKey,
-          child: ListView(
+        child: Scaffold(
+          body: Form(
+            key:formKey,
+            child: ListView(
 
-            children: [
-
-
-              containerAppBar("Sing Up"),
-              SizedBox(height: size.width/7,),
+                children: [
 
 
-              Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child:Text("First and last name:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
-          Container(width: size.width,
-              margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:nameValidator,
-                controller: name,)),
-
-              SizedBox(height: size.width/10 ,),
-
-              Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Inscription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
-           Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:inscNumberValidator,
-             controller: inscription_number,)),
-              SizedBox(height: size.width/10 ,),
+                containerAppBar("Sing Up"),
+            SizedBox(height: size.width/7,),
 
 
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child:Text("First and last name:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container(width: size.width,
+                margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:nameValidator,
+                  controller: name,)),
 
-             /* Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("University:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            SizedBox(height: size.width/10 ,),
+
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Inscription Number:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:inscNumberValidator,
+              controller: inscription_number,)),
+            SizedBox(height: size.width/10 ,),
+
+
+
+            /* Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("University:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
               inputField(contrl:unevirsity),
               SizedBox(height: size.width/10 ,),
 
@@ -114,61 +114,60 @@ class _SingUpState extends State<SingUp> {
 
               SizedBox(height: size.width/15 ,),*/
 
-              Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
-              Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField( validator: EmailValidator(errorText: 'enter a valid email address') ,
-                controller: email,)),
-              SizedBox(height: size.width/10 ,),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Email:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField( validator: EmailValidator(errorText: 'enter a valid email address') ,
+              controller: email,)),
+            SizedBox(height: size.width/10 ,),
 
-              Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
-              Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:passwordValidator,obscureText: true,
-                onChanged: (val) => pass = val,  controller: password,)),
-              SizedBox(height: size.width/7 ,),
-              Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Confirmation Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
-              Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(
-                validator: (val) => MatchValidator(errorText: 'passwords do not match').validateMatch(val, pass),
-                obscureText: true,
-                controller: confirmationpassword,)),
-              SizedBox(height: size.width/7 ,),
-             Expanded(
-               child: bottom(
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(validator:passwordValidator,obscureText: true,
+              onChanged: (val) => pass = val,  controller: password,)),
+            SizedBox(height: size.width/7 ,),
+            Container(margin: EdgeInsets.only(left:size.width/30 ),alignment:Alignment.topLeft,child: Text("Confirmation Password:",style: TextStyle(color: colorUser.gray,fontSize: size.width/22),)),
+            Container( margin: EdgeInsets.only(left:size.width/30,right:size.width/30, ),child: TextFormField(
+              validator: (val) => MatchValidator(errorText: 'passwords do not match').validateMatch(val, pass),
+              obscureText: true,
+              controller: confirmationpassword,)),
+            SizedBox(height: size.width/7 ,),
+            Expanded(
+              child: bottom(
 
-                 label: 'Sign up',
-                 ontap: () {if(formKey.currentState.validate()){
-                   setState(() {
-                        DatabaseHelper databaseHelper= new DatabaseHelper();
+                label: 'Sign up',
+                ontap: () {if(formKey.currentState.validate()){
+                  setState(() {
+                    DatabaseHelper databaseHelper= new DatabaseHelper();
 
-                           databaseHelper.registerData(name.text,email.text,password.text,inscription_number.text).whenComplete((){
-                             if(databaseHelper.status){
-                          showDialog(context:context ,builder:(BuildContext context){
-                            return AlertDialog(
-                                 title: new Text('Failed'),
-                                 content:  new Text('Check your email or password'),actions: <Widget>[
-                                 new  RaisedButton(child: new Text('Close',),onPressed: (){
-                                Navigator.of(context).pop();},),],);});
+                    databaseHelper.registerData(name.text,email.text,password.text,inscription_number.text).whenComplete((){
+                      if(databaseHelper.status){ Navigator.pushNamed(context,Home.id);
 
-                             }else{   Navigator.pushNamed(context,Home.id);
+                      }else{
+                        showDialog(context:context ,builder:(BuildContext context){
+                          return AlertDialog(
+                            title: new Text('Failed'),
+                            content:  new Text('Check your email is used '),actions: <Widget>[
+                            new  RaisedButton(child: new Text('Close',),onPressed: (){
+                              Navigator.of(context).pop();},),],);});
 
-                             }
-                           });
+                      }
+                    });
 
 
 
-                   });}
+                  });}
 
-                 },
-               ),
-             ),
-              SizedBox(height: size.width/25 ,),
-              Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-                Text("Already have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray),),
-                GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingIn.id),child:Text("Sing In",style: TextStyle(
-                    fontSize: size.width/24,color: colorUser.gray),),),
-              ],))
+                },
+              ),
+            ),
 
-            ],
-          ),
-        ),
-      ),
-    );
+          SizedBox(height: size.width/25 ,),
+          Container(margin: EdgeInsets.only(right:size.width/20 ),child:Row(mainAxisAlignment: MainAxisAlignment.center,children: [
+            Text("Dont have an account?",style: TextStyle(fontSize: size.width/25,color: colorUser.lightGray,fontFamily: 'VarelaRound-Regular'),),
+            GestureDetector(onTap: ()=>Navigator.of(context).pushNamed( SingUp.id),
+              child:Text("Sing Up",style: TextStyle(fontSize: size.width/24,color: colorUser.gray,fontFamily: 'VarelaRound-Regular'),),),
+          ],))
+
+          ],
+        ))));
+
   }
 }

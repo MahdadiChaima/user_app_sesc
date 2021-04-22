@@ -15,7 +15,7 @@ class Questions {
 class Question {
   int _qstnb = 0;
   List<Questions> _QuestionBank = [
-    Questions('بطاطا potato', 'ca','cow','low',2),
+    Questions('Some cats are actually allergic to humans', 'cat','cow','low',2),
     Questions('You can lead a cow down stairs but not up stairs.','by','me','do',3),
     Questions(
         'Approximately one quarter of human bones are in the feet.', 'yr','agm','ath',1),

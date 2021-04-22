@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Home.dart';
-int score=20,totalscore=100;
+int totalscore=100;
 
 class Score extends StatelessWidget {
+  int score;
+  Score({this.score});
   GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
 
   static String id = 'Score';
@@ -30,11 +32,11 @@ class Score extends StatelessWidget {
                     color: colorUser.darkGray,blurRadius: 14,)]),),
         Container(margin: EdgeInsets.only(right:size.width/30,top: size.width/30 ),alignment:Alignment.topRight,
             child:IconButton(onPressed: ()=>{Navigator.pushNamed(context,Home.id)},icon:Icon(Icons.home_filled,
-              size: size.width/10,color:colorUser.gray,))),
+              size: size.width/10,color:colorUser.lightGray,))),
 
         Container(margin: EdgeInsets.only(left:size.width/30,top: size.width/30 ),alignment:Alignment.topLeft,
             child:IconButton(onPressed: ()=>_scaffoldKey.currentState.openDrawer(),icon:Icon(Icons.menu_outlined,
-              size: size.width/10,color:colorUser.gray,))),
+              size: size.width/10,color:colorUser.lightGray,))),
 ]),
         SizedBox(height: size.width/5,),
             Center(child: Text("Your Score is:",style: TextStyle(fontSize: size.width/10,color:colorUser.darkGray,fontFamily: 'VarelaRound-Regular'),)),
@@ -43,9 +45,7 @@ class Score extends StatelessWidget {
 
 
           ]),
-        floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios_outlined),
-            backgroundColor: colorUser.orange,  ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat
+      
       ),
 
     );

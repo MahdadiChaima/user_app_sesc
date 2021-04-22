@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/Courses.dart';
+import 'package:user_app_sesc/Ui/CreatedBy.dart';
 import 'package:user_app_sesc/Ui/Sing%20Up.dart';
 import 'package:user_app_sesc/Ui/SingIn.dart';
 import 'package:user_app_sesc/Ui/account.dart';
@@ -139,24 +140,15 @@ showDialog(context: context, builder: (context){
           ),),
         ),
         ListTile(
-          onTap: () {},
+          onTap: ()=>Navigator.pushNamed(context,CreatedBy.id),
           leading: Icon(
-            Icons.share,
+            Icons.people_alt,
             color: colorUser.darkBlue,
+
+
           ),
-          title: Text("Shared",style: TextStyle(
-            fontSize:size.width/22 ,
-            color: colorUser.gray,
-              fontFamily: 'VarelaRound-Regular'
-          ),),
-        ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.people_rounded,
-            color: colorUser.darkBlue,
-          ),
-          title: Text("Created By",style: TextStyle(
+
+          title: Text("About us",style: TextStyle(
             fontSize:size.width/22 ,
             color: colorUser.gray,
               fontFamily: 'VarelaRound-Regular'

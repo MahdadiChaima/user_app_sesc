@@ -50,9 +50,7 @@ class Score_Fail extends StatelessWidget {
 
 
           ],
-        ),   floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios_outlined),
-        backgroundColor: colorUser.orange,  ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat
+        ),
       ),
     );
   }

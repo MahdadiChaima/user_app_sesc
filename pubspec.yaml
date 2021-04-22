@@ -68,3 +68,11 @@ flutter:
     - family: VarelaRound-Regular
       fonts:
         - asset: assest/font/VarelaRound-Regular.ttf
+    - family: Tajawal-Regular
+      fonts:
+        - asset: assest/font/Tajawal-Regular.ttf
+    - family: OleoScript-Bold
+      fonts:
+        - asset: assest/font/OleoScript-Bold.ttf
+
+          #Oleo

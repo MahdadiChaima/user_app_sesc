@@ -1,131 +1,103 @@
+
+
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:user_app_sesc/DataBase/DatabaseHelper.dart';
+
 import 'package:user_app_sesc/Ui/ConstantWidget/Color.dart';
 import 'package:user_app_sesc/Ui/ConstantWidget/Time.dart';
 import 'package:user_app_sesc/Ui/score.dart';
 import 'package:user_app_sesc/Ui/score_fail.dart';
 import 'package:user_app_sesc/Ui/score_success.dart';
+
 import 'package:user_app_sesc/controller/Question.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
-import 'package:http/http.dart' as http;
+import 'package:user_app_sesc/model/model.dart';
+DatabaseHelper db=new DatabaseHelper();
 
-//mazal Ma3rftch kifah ndiir  nta3 kiykliki 3la ansower ywli ytbal giir lawn nta3ha
-//3labalk yakhi ttlawn 2ijaba b rose w font color ywli blabyad
-//mamb3d yro7 l next qstion
-//Time hadi ay fonction wa7dha mdayrtha fi constnt widget w hiya li tt7akm fi wa9t 2ijaba w tani 3ndha paramatre temp
-//3ndk temp ymathl wa9t Sou2al gadah yg3d
-//Color backgroundAnsawer=Colors.white,colorFont=colorUser.gray;
 int temp=20;
 Question quizbrain = Question();
 
 class Quiz extends StatefulWidget {
   static String id = 'Quiz';
+  final dynamic data;
+  Quiz({this.data});
   @override
   _QuizState createState() => _QuizState();
-}Future <List> getdata() async{
-  var url = 'http://127.0.0.1:8000/api/test';
-  http.Response response = await http.get(Uri.parse(url));
-  var data = jsonDecode(response.body);
-  print("hi go to hell");
-  print(data.toString());
-  return data;
-
-  /*var url="http://127.0.0.1:8000/api/test";
-  print('ani fi get data');
-  final response=await http.get(Uri.parse(url));
-
-  return jsonDecode(response.body);*/
 }
 
 class _QuizState extends State<Quiz> {
+  String que;
+  String opt1, opt2, opt3, opt4;
+  int qNo = 0;
+  int score = 0;
+  int ans = 9;
+  int selectedRadio = 5;
+  int trueAnswer;
+  void updateUI() {
+    setState(() {
+      if (widget.data == null) {
+        que = 'Unable to retrieve question, please check your network.';
+        opt1 = 'null';
+        opt2 = 'null';
+        opt3 = 'null';
+        opt4 = 'null';
+        return;
+      }
 
-  void initState() {
-    super.initState();
+      que = widget.data[qNo]['Question'].toString();
+      print(que);
+      opt1 = widget.data[qNo]['A1']
+          .toString();
+      opt2 = widget.data[qNo]['A2']
+          .toString();
+      opt3 = widget.data[qNo]['A3']
+          .toString();
 
-
-  //  correction.clear();
-   // correction={'ans1':false,'ans2':false,'ans3':false};
-
+    });
   }
+  void updateQues() {
+    setState(() {
+      if (qNo == widget.data.length - 1) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Score(
+                 score: score,
+                )));
+        return;
+      } else {
+        qNo++;
+      }
+    });
+  }
+  void checkAnswer(int trueAnswer) {
+    if (widget.data[qNo]['correct']
+        .toString() ==
+        'A$trueAnswer'){
+      print(" correct data $qNo: ${widget.data[qNo]['correct']}");
+      print("score inside chek qst :$score");
+      score++;}
+    else { Navigator.pushNamed(context, Score_Fail.id);
+    }
+  }
+
   GlobalKey <ScaffoldState> _scaffoldKey =GlobalKey<ScaffoldState>();
   int qstnb = 0;
 
-  void checkAns(int ans){
-    int correct = quizbrain.getQstans();
-    setState(() {
 
-      if (quizbrain.isFinished() == true) {
-        //boite de dialogue
-        quizbrain.reset();
-        Navigator.pushNamed(context, Score.id);
-
-
-      } else {
-      if (correct == ans) {
-        // TODO: increment score.
-
-       // Navigator.pushNamed(context,Score_Success.id);
-      /*  Alert(
-            context: context,
-            title: "That's True ",
-          style: AlertStyle(titleStyle: TextStyle(color: colorUser.darkBlue,fontWeight: FontWeight.bold, fontSize: 30.0)),
-
-          content: Image.asset("assest/success.PNG"),
-          buttons: [
-          DialogButton(
-            color: colorUser.pink,
-            child: Text(
-              "Next",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            onPressed: () => Navigator.pop(context),
-            width: 120,
-          )
-          ],
-        ).show();*/
-      } else {
-        // TODO: decrement score.
-       // backgroundAnsawer=Colors.pink;
-      //  colorFont=Colors.white;
-     //   Navigator.pushNamed(context,Score_Fail.id);
-
-      /*  Alert(
-          content: Image.asset("assest/score_fail.PNG"),
-            context: context,
-            title: "Wrong answer",
-
-          style: AlertStyle(titleStyle: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,fontSize: 30.0)),
-          buttons: [
-            DialogButton(
-              color: colorUser.pink,
-              child: Text(
-                "Next",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              onPressed: () => Navigator.pop(context),
-              width: 120,
-            )
-          ],
-        ).show();*/
-      }
-      quizbrain.nextqst();
-
-      }}
-      );
-
-//The user picked true.
-}
 
   @override
   Widget build(BuildContext context) {
+    updateUI();
+
     Size size=MediaQuery.of(context).size;
     return  SafeArea(child: Scaffold(
-    /* key: _scaffoldKey,
+      key: _scaffoldKey,
       drawer: Drawer(
         child:drawer(),
       ),
@@ -156,75 +128,54 @@ class _QuizState extends State<Quiz> {
             child: Center(
               child: Column(
                 children: [
-                SizedBox(height: size.width/16,),Container( width: size.width/1.3,
-                  padding:EdgeInsets.all(size.width/19),decoration:BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20) ,
-                      ),border: Border.all(color:colorUser.darkGray)),
-                     child:Text(quizbrain.getQsttxt(),style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20,fontFamily: 'VarelaRound-Regular'),)),
-                SizedBox(height: size.width/16,),
+                  SizedBox(height: size.width/16,),Container( width: size.width/1.15,
+                      padding:EdgeInsets.all(size.width/25),decoration:BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20) ,
+                          ),border: Border.all(color:colorUser.darkGray)),
+                      child:Text(que,textAlign:TextAlign.center,style: TextStyle(color: colorUser.darkGray,fontSize: size.width/20,fontFamily: 'Tajawal-Regular'),)),
+                  SizedBox(height: size.width/16,),
 
-                 answer(
-                    ans: quizbrain.getans1txt(),
+                  answer(
+                    ans: opt1,
 
-                   ontap: (){
+                    ontap: (){
 
-                     checkAns(1);
-                     setState(() {
-                       time(temp);
-                     });
+                      checkAnswer(1);
+                      setState(() {
+                        time(temp);
+                        updateQues();
+                      });
 
 
-              },
-  ),
-
-             answer(ans: quizbrain.getans2txt(),
-               ontap: (){
-                 checkAns(2);
-                 setState(() {
-                   time(temp);
-                 });
-               }
-               ),
-
-                answer(ans: quizbrain.getans3txt(),
-                  ontap: (){
-                    checkAns(3);
-                    setState(() {
-                      time(temp);
-                    });
-                  }
+                    },
                   ),
-              ],),
+
+                  answer(ans: opt2,
+                      ontap: (){
+                        checkAnswer(2);
+                        setState(() {updateQues();
+                        time(temp);
+                        });
+                      }
+                  ),
+
+                  answer(ans: opt3,
+                      ontap: (){checkAnswer(3);
+                        //checkAns(3);
+                        setState(() {
+
+                          updateQues();
+                          time(temp);
+                        });
+                      }
+                  ),
+                ],),
             ),
           )
         ],),
-      ),*/
+      ),
 
-      appBar: AppBar(
-        title: Text("My App Bar"),
-    ),
-    floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
-    body: FutureBuilder<List>(future: getdata(),
-
-    builder: (context,snapShot){  if(snapShot.hasError){
-    print(snapShot.data);
-    return Items(list:snapShot.data);
-    }
-    if(snapShot.hasData){
-    return ListView.builder(itemCount: snapShot.data.length,
-    itemBuilder: (context,i){
-    return Container(child: Text(snapShot.data[i]['name']),);
-    });
-    }
-
-    else{
-    return CircularProgressIndicator();
-    }
-    }
-    ),
-    )
-
-    );
+    ),);
   }
 }
 
@@ -234,45 +185,29 @@ class answer extends StatelessWidget {
   });
 
   final String ans;
-final Function ontap;
+  final Function ontap;
   //final Function ontap;
 
   @override
   Widget build(BuildContext context) { Size size=MediaQuery.of(context).size;
 
-   return GestureDetector(
+  return GestureDetector(
     //  la methode onTap sert a fait action listener
-     onTap: ontap,
+    onTap: ontap,
 
-      child:
-   Container(  padding:EdgeInsets.only(top:size.width/22,left:size.width/30 ,right:size.width/30 ,bottom:size.width/22 ),
-        width:size.width,
-         decoration: BoxDecoration(color:Colors.white,border: Border.all(color:colorUser.lightGray)),
-       margin: EdgeInsets.all(size.width/25),
+    child:
+    Container(  padding:EdgeInsets.only(top:size.width/22,left:size.width/30 ,right:size.width/30 ,bottom:size.width/22 ),
+      width:size.width,
+      decoration: BoxDecoration(color:Colors.white,border: Border.all(color:colorUser.lightGray)),
+      margin: EdgeInsets.all(size.width/25),
 
 
-        child: Text(ans,style: TextStyle(color:colorUser.gray,fontSize: size.width/22,fontFamily: 'VarelaRound-Regular'),),
-      ),
+      child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text(ans,textAlign:TextAlign.center,style: TextStyle(color:colorUser.gray,fontSize: size.width/22,fontFamily: 'Tajawal-Regular'),)),
+    ),
 
-    );
+  );
 
-  }
-}
-class Items extends StatelessWidget {
-  List list;
-  Items({this.list});
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(itemCount:list==null?0:list.length ,itemBuilder: (ctx,i){
-      return ListTile(
-        leading: Icon(Icons.message),
-        title:Text(list[i]['id']),
-        subtitle: Text(list[i]['name']),
-        onTap: (){
-        //  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Details(list:list,index:i)));
-        },
-
-      );
-    });
   }
 }

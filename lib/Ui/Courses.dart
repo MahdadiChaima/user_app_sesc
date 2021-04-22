@@ -17,7 +17,11 @@ class Courses extends StatelessWidget {
     Size size=MediaQuery.of(context).size;
 
     const colorizeColors = [
-      Colors.deepOrange,
+      colorUser.darkGray,
+      colorUser.darkBlue,
+
+      //colorUser.lightBlue,
+      //Colors.deepOrange,
       Colors.orangeAccent,
       Colors.yellow,
       Colors.lightGreenAccent,

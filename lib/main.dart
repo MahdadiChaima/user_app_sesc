@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_app_sesc/Ui/CreatedBy.dart';
 import 'package:user_app_sesc/Ui/Drawer/DrawerScreen.dart';
 import 'package:user_app_sesc/Ui/Quiz.dart';
 import 'package:user_app_sesc/Ui/Sing%20Up.dart';
@@ -31,6 +32,7 @@ void main() {
       Score_Fail.id:(context)=>Score_Fail(),
       Score_Success.id:(context)=>Score_Success(),
       account.id:(context)=>account(),
+      CreatedBy.id:(context)=>CreatedBy(),
 
     },));
 }
